@@ -10,7 +10,7 @@ services:
     restart: always             # run as a service
     volumes:
         - ./postgresql:/var/lib/postgresql/data
-
+$DESTINATION
   odoo17:
     image: odoo:17
     user: root
@@ -18,9 +18,9 @@ services:
       - db
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.dev.entrypoints=websecure"
-      - "traefik.http.routers.dev.rule=Host(`demo.$MY_DOMAIN`)"
-      - "traefik.http.routers.dev.tls.certresolver=lets-encr"
+      - "traefik.http.routers.$DESTINATION.entrypoints=websecure"
+      - "traefik.http.routers.$DESTINATION.rule=Host(`demo.$MY_DOMAIN`)"
+      - "traefik.http.routers.$DESTINATION.tls.certresolver=lets-encr"
     
     ports:
       - "10017:8069"
