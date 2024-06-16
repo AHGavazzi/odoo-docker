@@ -18,9 +18,9 @@ services:
       - db
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.$DESTINATION.entrypoints=websecure"
-      - "traefik.http.routers.$DESTINATION.rule=Host(`demo.$MY_DOMAIN`)"
-      - "traefik.http.routers.$DESTINATION.tls.certresolver=lets-encr"
+      - "traefik.http.routers.odoo-dev-odoo17-1.entrypoints=websecure"
+      - "traefik.http.routers.odoo-dev-odoo17-1.rule=Host(`dev.diggilabs.diggisys.com`)"
+      - "traefik.http.routers.odoo-dev-odoo17-1.tls.certresolver=lets-encr"
     
     ports:
       - "10017:8069"
